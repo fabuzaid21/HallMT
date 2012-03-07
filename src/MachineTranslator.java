@@ -1,6 +1,9 @@
+import java.util.*;
+
 public class MachineTranslator {
 
 	private Dictionary dict;
+	private List<String> sentences;
 
 	public static void main(String[] args) {
 		// write rules
@@ -18,10 +21,27 @@ public class MachineTranslator {
 	
 	private MachineTranslator(String inputPath, String dictionaryPath) {
 		// TODO Auto-generated constructor stub
-		dict = new Dictionary(dictionaryPath);
+		//dict = new Dictionary(dictionaryPath);
+		sentences = GetSentencesFromFile(inputPath);
+	}
+	
+	private ArrayList<String> GetSentencesFromFile(String inputPath) {
+		return new ArrayList<String>();
 	}
 
 	public void run() {
-
+		// Translate sentence
+		int i = 0;
+		for (String sentence : sentences) {
+			i++;
+			String translated = TranslateSentence(sentence);
+			System.out.println("Sentence " + i);
+			System.out.println("Spanish version:" + sentence);
+			System.out.println("English translation: " + translated);
+		}
+	}
+	
+	private String TranslateSentence(String foreignSentence) {
+		return foreignSentence;
 	}
 }
