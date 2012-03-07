@@ -17,10 +17,9 @@ public class Dictionary {
 				}
 				String[] words = line.split(" ");
 				dict.put(words[0], words[1]);
-
 			}
+			reader.close();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
