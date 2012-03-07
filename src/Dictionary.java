@@ -12,12 +12,14 @@ public class Dictionary {
 			reader = new BufferedReader(new FileReader(file));
 			while (true) {
 				String line = reader.readLine();
+				if (line == null) {
+					break;
+				}
 				String[] words = line.split(" ");
 				dict.put(words[0], words[1]);
-
 			}
+			reader.close();
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
