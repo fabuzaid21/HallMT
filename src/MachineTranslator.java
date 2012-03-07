@@ -9,14 +9,16 @@ public class MachineTranslator {
 		// (Almost there) take rules and apply them to the English words to
 		// reorder them into sentences
 		// print out results!
+		String inputPath = args.length > 0 ? args[0] : "../data/test.txt";
+		String dictionaryPath = args.length > 1 ? args[1] : "../data/dict.dat";
 
-		MachineTranslator translator = new MachineTranslator(args[0]);
+		MachineTranslator translator = new MachineTranslator(inputPath, dictionaryPath);
 		translator.run();
-
 	}
-	private MachineTranslator(String file) {
+	
+	private MachineTranslator(String inputPath, String dictionaryPath) {
 		// TODO Auto-generated constructor stub
-		dict = new Dictionary(file);
+		dict = new Dictionary(dictionaryPath);
 	}
 
 	public void run() {
