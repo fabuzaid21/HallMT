@@ -6,6 +6,8 @@ public class MachineTranslator {
 	private Dictionary dict;
 	private List<String> sentences;
 	private MaxentTagger tagger;
+	
+	private final boolean DISABLE_TAGGER = true;
 
 	public static void main(String[] args) {
 		// write rules
@@ -14,8 +16,8 @@ public class MachineTranslator {
 		// (Almost there) take rules and apply them to the English words to
 		// reorder them into sentences
 		// print out results!
-		String inputPath = args.length > 0 ? args[0] : "../data/test.txt";
-		String dictionaryPath = args.length > 1 ? args[1] : "../data/dict.dat";
+		String inputPath = args.length > 0 ? args[0] : "data/test.txt";
+		String dictionaryPath = args.length > 1 ? args[1] : "data/dict.dat";
 
 		MachineTranslator translator = new MachineTranslator(inputPath,
 				dictionaryPath);
@@ -26,8 +28,9 @@ public class MachineTranslator {
 		// TODO Auto-generated constructor stub
 		dict = new Dictionary(dictionaryPath);
 		try {
-			tagger = new MaxentTagger(
-					"models/english-left3words-distsim.tagger");
+			if (!DISABLE_TAGGER) {
+				tagger = new MaxentTagger("libs/models/english-left3words-distsim.tagger");
+			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

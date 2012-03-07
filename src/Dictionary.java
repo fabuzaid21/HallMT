@@ -16,7 +16,9 @@ public class Dictionary {
 					break;
 				}
 				String[] words = line.split(" ");
-				dict.put(words[0], words[1]);
+				if (words.length == 2) {
+					dict.put(words[0], words[1]);
+				}
 			}
 			reader.close();
 		} catch (Exception e) {
