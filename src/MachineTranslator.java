@@ -54,7 +54,7 @@ public class MachineTranslator {
 			e.printStackTrace();
 		}
 		
-		return (sentences.size() == 0) ? null : sentences;
+		return sentences;
 	}
 
 	public void run() {
