@@ -1,6 +1,9 @@
+import edu.stanford.nlp.tagger.maxent.MaxentTagger;
+
 public class MachineTranslator {
 
 	private Dictionary dict;
+	private MaxentTagger tagger;
 
 	public static void main(String[] args) {
 		// write rules
@@ -11,12 +14,19 @@ public class MachineTranslator {
 		// print out results!
 
 		MachineTranslator translator = new MachineTranslator(args[0]);
+
 		translator.run();
 
 	}
 	private MachineTranslator(String file) {
-		// TODO Auto-generated constructor stub
 		dict = new Dictionary(file);
+
+		try {
+			tagger = new MaxentTagger(
+					"models/english-left3words-distsim.tagger");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	public void run() {
