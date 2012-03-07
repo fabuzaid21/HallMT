@@ -1,3 +1,5 @@
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.util.*;
 import edu.stanford.nlp.tagger.maxent.MaxentTagger;
 
@@ -19,8 +21,7 @@ public class MachineTranslator {
 		String inputPath = args.length > 0 ? args[0] : "data/test.txt";
 		String dictionaryPath = args.length > 1 ? args[1] : "data/dict.dat";
 
-		MachineTranslator translator = new MachineTranslator(inputPath,
-				dictionaryPath);
+		MachineTranslator translator = new MachineTranslator(inputPath, dictionaryPath);
 		translator.run();
 	}
 
@@ -38,7 +39,22 @@ public class MachineTranslator {
 	}
 	
 	private ArrayList<String> GetSentencesFromFile(String inputPath) {
-		return new ArrayList<String>();
+		BufferedReader reader = null;
+		ArrayList<String> sentences = new ArrayList<String>();
+		
+		try {
+			reader = new BufferedReader(new FileReader(inputPath));
+			while (true) {
+				String line = reader.readLine();
+				if (line == null) break;
+				sentences.add(line);
+			}
+			reader.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		return (sentences.size() == 0) ? null : sentences;
 	}
 
 	public void run() {

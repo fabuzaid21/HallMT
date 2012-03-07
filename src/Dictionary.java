@@ -24,7 +24,6 @@ public class Dictionary {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
 	}
 
 	public String getWord(String spanishWord) {
