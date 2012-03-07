@@ -64,8 +64,10 @@ public class MachineTranslator {
 			i++;
 			String translated = TranslateSentence(sentence);
 			System.out.println("Sentence " + i);
-			System.out.println("Spanish version:" + sentence);
+			System.out.println("==========");
+			System.out.println("Spanish version: " + sentence);
 			System.out.println("English translation: " + translated);
+			System.out.println();
 		}
 	}
 	
