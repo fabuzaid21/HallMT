@@ -1,14 +1,16 @@
+import edu.stanford.nlp.tagger.maxent.MaxentTagger;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.util.*;
-import edu.stanford.nlp.tagger.maxent.MaxentTagger;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MachineTranslator {
 
 	private Dictionary dict;
 	private List<String> sentences;
 	private MaxentTagger tagger;
-	
+
 	private final boolean DISABLE_TAGGER = true;
 
 	public static void main(String[] args) {
@@ -21,7 +23,8 @@ public class MachineTranslator {
 		String inputPath = args.length > 0 ? args[0] : "data/test.txt";
 		String dictionaryPath = args.length > 1 ? args[1] : "data/dict.dat";
 
-		MachineTranslator translator = new MachineTranslator(inputPath, dictionaryPath);
+		MachineTranslator translator = new MachineTranslator(inputPath,
+				dictionaryPath);
 		translator.run();
 	}
 
@@ -30,30 +33,32 @@ public class MachineTranslator {
 		dict = new Dictionary(dictionaryPath);
 		try {
 			if (!DISABLE_TAGGER) {
-				tagger = new MaxentTagger("libs/models/english-left3words-distsim.tagger");
+				tagger = new MaxentTagger(
+						"libs/models/english-left3words-distsim.tagger");
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		sentences = GetSentencesFromFile(inputPath);
 	}
-	
+
 	private ArrayList<String> GetSentencesFromFile(String inputPath) {
 		BufferedReader reader = null;
 		ArrayList<String> sentences = new ArrayList<String>();
-		
+
 		try {
 			reader = new BufferedReader(new FileReader(inputPath));
 			while (true) {
 				String line = reader.readLine();
-				if (line == null) break;
+				if (line == null)
+					break;
 				sentences.add(line);
 			}
 			reader.close();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		return sentences;
 	}
 
@@ -70,8 +75,12 @@ public class MachineTranslator {
 			System.out.println();
 		}
 	}
-	
+
 	private String TranslateSentence(String foreignSentence) {
-		return foreignSentence;
+		String englishSentence = "";
+		for (String word : foreignSentence.split("[ ,-.]")) {
+			englishSentence += " " + dict.getWord(word.toLowerCase());
+		}
+		return englishSentence;
 	}
 }
