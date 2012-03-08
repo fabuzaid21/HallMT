@@ -20,8 +20,9 @@ public class Dictionary {
 				}
 				String[] words = line.split(" ", 2);
 				if (words.length == 2) {
-					dict.put(words[0],
-							words[1].substring(1, words[1].length() - 1));
+					String key = words[0];
+					String value = words[1].substring(1, words[1].length() - 1);
+					dict.put(key, value);
 				}
 			}
 			reader.close();
