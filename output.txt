@@ -1,0 +1,65 @@
+Sentence 1
+==========
+Spanish version: Sin embargo, la viejecita -que se había presentado tan cordialmente- era una bruja que cuando encontraba niños lo celebraba comiéndoselos.
+English translation: without embargo, the old woman -that is had submitted so cordially- era an witch that when was children it held eating them.
+Tagged English translation: without/IN embargo/NN ,/, the/DT old/JJ woman/NN -/: that/WDT is/VBZ had/VBN submitted/VBN so/RB cordially/RB -/: era/NN an/DT witch/NN that/WDT when/WRB was/VBD children/NNS it/PRP held/VBD eating/VBG them/PRP ./.
+
+Sentence 2
+==========
+Spanish version: A primera hora de la mañana, la bruja cogió bruscamente a Hansel con su dura mano.
+English translation: to first time of the morning, the witch lifted sharply to Hansel with its hard hand.
+Tagged English translation: to/TO first/JJ time/NN of/IN the/DT morning/NN ,/, the/DT witch/NN lifted/VBD sharply/RB to/TO Hansel/NNP with/IN its/PRP$ hard/JJ hand/NN ./.
+
+Sentence 3
+==========
+Spanish version: Le llevó al establo y le encerró detrás de una reja.
+English translation: you took to the establo and you locked behind of an grid.
+Tagged English translation: you/PRP took/VBD to/TO the/DT establo/NN and/CC you/PRP locked/VBD behind/IN of/IN an/DT grid/NN ./.
+
+Sentence 4
+==========
+Spanish version: Tras despertar a Gretel a gritos, le mandó que hiciese unas buenas comidas para su hermano a fin de engordarle.
+English translation: after awakening to Gretel to shouting, you command that I made some good meals to its brother to end of made him fat.
+Tagged English translation: after/IN awakening/VBG to/TO Gretel/NNP to/TO shouting/VBG ,/, you/PRP command/VBP that/IN I/PRP made/VBD some/DT good/JJ meals/NNS to/TO its/PRP$ brother/NN to/TO end/VB of/IN made/VBN him/PRP fat/JJ ./.
+
+Sentence 5
+==========
+Spanish version: Cuando estuviese bien gordo se lo comería.
+English translation: when was well fat is it would eat.
+Tagged English translation: when/WRB was/VBD well/RB fat/JJ is/VBZ it/PRP would/MD eat/VB ./.
+
+Sentence 6
+==========
+Spanish version: Por más que la pobre Gretel lloraba tenía que hacer todo lo que la bruja le exigía.
+English translation: by more that the poor Gretel cried had that do all it that the witch you demanded.
+Tagged English translation: by/IN more/JJR that/IN the/DT poor/JJ Gretel/NNP cried/VBD had/VBD that/DT do/VBP all/DT it/PRP that/IN the/DT witch/NN you/PRP demanded/VBD ./.
+
+Sentence 7
+==========
+Spanish version: Cada mañana la bruja iba al establo para comprobar si Hansel engordaba.
+English translation: each morning the witch was to the establo to check if Hansel fattened.
+Tagged English translation: each/DT morning/NN the/DT witch/NN was/VBD to/TO the/DT establo/NN to/TO check/VB if/IN Hansel/NNP fattened/VBD ./.
+
+Sentence 8
+==========
+Spanish version: Él, ingenioso -sabiendo que la bruja veía poco-, en lugar de darle la mano, le mostraba un huesecillo de pollo.
+English translation: he, ingenious -knowing that the witch see little- in place of give to him the hand, you showed a little bone of chicken.
+Tagged English translation: he/PRP ,/, ingenious/JJ -/: knowing/VBG that/IN the/DT witch/NN see/VB little/JJ -/: in/IN place/NN of/IN give/VB to/TO him/PRP the/DT hand/NN ,/, you/PRP showed/VBD a/DT little/JJ bone/NN of/IN chicken/NN ./.
+
+Sentence 9
+==========
+Spanish version: Al constatar que el niño no aumentaba de peso, se enfadaba muchísimo.
+English translation: to the note that the child not increased of weight, is angry a lot.
+Tagged English translation: to/TO the/DT note/NN that/IN the/DT child/NN not/RB increased/VBN of/IN weight/NN ,/, is/VBZ angry/JJ a/DT lot/NN ./.
+
+Sentence 10
+==========
+Spanish version: Pasadas cuatro semanas, y viendo que no engordaba, decidió que de todos modos se lo comería al día siguiente.
+English translation: past four weeks, and watching that not fattened, decided that of all modes is it would eat to the day following.
+Tagged English translation: past/IN four/CD weeks/NNS ,/, and/CC watching/VBG that/IN not/RB fattened/VBN ,/, decided/VBD that/IN of/IN all/DT modes/NNS is/VBZ it/PRP would/MD eat/VB to/TO the/DT day/NN following/VBG ./.
+
+Sentence 11
+==========
+Spanish version: Gretel no paraba de llorar y llorar, pero sus lágrimas no servían de nada.
+English translation: Gretel not stopped of mourn and mourn, but their tears not served of nothing.
+Tagged English translation: Gretel/NNP not/RB stopped/VBD of/IN mourn/NN and/CC mourn/VB ,/, but/CC their/PRP$ tears/NNS not/RB served/VBD of/IN nothing/NN ./.
