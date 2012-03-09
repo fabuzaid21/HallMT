@@ -14,6 +14,7 @@ public class ReorderEngine {
 	public ReorderEngine() {
 		// Add reorder rules here
 		// e.g. rules.add(new RandomRule());
+		rules.add(new ObjectPronounAfterRule());
 	}
 
 	public List<TaggedWord> reorderSentence(List<TaggedWord> words) {

@@ -100,7 +100,7 @@ public class MachineTranslator {
 			String translation = dict.getWord(word);
 			if (translation == null) translation = word;
 			for (String w : translation.split(" ")) {
-				translatedWords.add(new TaggedWord(translation, "NA"));
+				translatedWords.add(new TaggedWord(w, "UNK"));
 			}
 		}
 		// Tag the words
@@ -118,11 +118,14 @@ public class MachineTranslator {
 		for (TaggedWord word : taggedWords) {
 			String wordStr = word.word();
 			// Check if punctuation is in it or first word
-			if (!".,".contains(wordStr)) {
+			if (!firstWord && !".,".contains(wordStr)) {
 				translatedSentence += " ";
 			}
+			if (firstWord) {
+				wordStr = wordStr.substring(0, 1).toUpperCase() + wordStr.substring(1);
+				firstWord = false;
+			}
 			translatedSentence += wordStr;
-			if (!firstWord) firstWord = true;
 		}
 		return translatedSentence.trim();
 	}
