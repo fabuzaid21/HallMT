@@ -18,10 +18,10 @@ public class Dictionary {
 				if (line == null) {
 					break;
 				}
-				String[] words = line.split(" ", 2);
+				String[] words = line.split("\t", 2);
 				if (words.length == 2) {
 					String key = words[0];
-					String value = words[1].substring(1, words[1].length() - 1);
+					String value = words[1];
 					dict.put(key, value);
 				}
 			}

@@ -14,7 +14,7 @@ public class MachineTranslator {
 	private List<String> sentences;
 	private MaxentTagger tagger;
 
-	private final boolean DISABLE_TAGGER = false;
+	private final boolean DISABLE_TAGGER = true;
 
 	public static void main(String[] args) {
 		// write rules
@@ -75,8 +75,10 @@ public class MachineTranslator {
 			out.println("==========");
 			out.println("Spanish version: " + sentence);
 			out.println("English translation: " + translated);
-			out.println("Tagged English translation: "
-					+ tagger.tagString(translated));
+			if (tagger != null) {
+				out.println("Tagged English translation: "
+						+ tagger.tagString(translated));
+			}
 			out.println();
 		}
 	}
