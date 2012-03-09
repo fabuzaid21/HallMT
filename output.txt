@@ -57,9 +57,3 @@ Sentence 10
 Spanish version: Pasadas cuatro semanas, y viendo que no engordaba, decidió que de todos modos se lo comería al día siguiente.
 English translation: past four weeks, and watching that not fattened, decided that of all modes is it would eat to the day following.
 Tagged English translation: past/IN four/CD weeks/NNS ,/, and/CC watching/VBG that/IN not/RB fattened/VBN ,/, decided/VBD that/IN of/IN all/DT modes/NNS is/VBZ it/PRP would/MD eat/VB to/TO the/DT day/NN following/VBG ./.
-
-Sentence 11
-==========
-Spanish version: Gretel no paraba de llorar y llorar, pero sus lágrimas no servían de nada.
-English translation: Gretel not stopped of mourn and mourn, but their tears not served of nothing.
-Tagged English translation: Gretel/NNP not/RB stopped/VBD of/IN mourn/NN and/CC mourn/VB ,/, but/CC their/PRP$ tears/NNS not/RB served/VBD of/IN nothing/NN ./.

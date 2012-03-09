@@ -1,0 +1,48 @@
+=====================================
+PROJECT WRITEUP
+Firas Abuzaid, Kingston Tam, Tina Roh
+=====================================
+
+F LANGUAGE: Spanish
+
+TEST DOCUMENT:
+Sin embargo, la viejecita -que se había presentado tan cordialmente- era una bruja que cuando encontraba niños lo celebraba comiéndoselos.
+A primera hora de la mañana, la bruja cogió bruscamente a Hansel con su dura mano.
+Le llevó al establo y le encerró detrás de una reja.
+Tras despertar a Gretel a gritos, le mandó que hiciese unas buenas comidas para su hermano a fin de engordarle.
+Cuando estuviese bien gordo se lo comería.
+Por más que la pobre Gretel lloraba tenía que hacer todo lo que la bruja le exigía.
+Cada mañana la bruja iba al establo para comprobar si Hansel engordaba.
+Él, ingenioso -sabiendo que la bruja veía poco-, en lugar de darle la mano, le mostraba un huesecillo de pollo.
+Al constatar que el niño no aumentaba de peso, se enfadaba muchísimo.
+Pasadas cuatro semanas, y viendo que no engordaba, decidió que de todos modos se lo comería al día siguiente.
+Gretel no paraba de llorar y llorar, pero sus lágrimas no servían de nada.
+
+=====================================
+
+SYSTEM OUTPUT:
+
+
+RULES:
+1. 
+
+ERROR ANALYSIS:
+What kinds of errors are still left, and what kind of knowledge would you have needed to fix them?
+Error analysis, including ideas for how additional work might fix your remaining errors.
+
+=====================================
+
+GOOGLE TRANSLATE:
+Next, run your 10 sentences through Google Translate and discuss any errors that Google makes. Where does Google do better? Are there places where your implementation does better? Why?
+
+Comparative analysis for Google Translate, including where your system and Google agree, what your system does better than Google Translate, and what Google Translate does better than your system.
+
+=====================================
+
+The F language you're working with and any general observations about it, including particular challenges in translating your choice of F language to English (relative to other possible choices for F).
+
+The output of your system.
+For each rule you create, a description of what it was supposed to do, what differences between Language F and English it was supposed to fix. Make sure you give a good example of the use of the rules in your running of your code.
+
+
+A brief statement on the responsibilities of different members of the team. (Team members will normally get the same grade, but we reserve the right to differentiate in egregious cases.)
