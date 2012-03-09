@@ -22,7 +22,7 @@ public abstract class RegexReorderRule extends ReorderRule {
 	 */
 	protected int[] reorderOrder = new int[] {};
 	
-	private String[] tags = new String[] {"UNK", "CC", "CD", "DT", "EX", "FW", "IN", "JJ", "JJR", "JJS", "LS", "MD", "NN", "NNS", "NNP", "NNPS", "PDT", "POS", "PRP", "PRP$", "RB", "RBR", "RBS", "RP", "SYM", "TO", "UH", "VB", "VBD", "VBG", "VBN", "VBP", "VBZ", "WDT", "WP", "WP$", "WRB"}
+	private String[] tags = new String[] {"UNK", ",", ":", ".", "CC", "CD", "DT", "EX", "FW", "IN", "JJ", "JJR", "JJS", "LS", "MD", "NN", "NNS", "NNP", "NNPS", "PDT", "POS", "PRP", "PRP$", "RB", "RBR", "RBS", "RP", "SYM", "TO", "UH", "VB", "VBD", "VBG", "VBN", "VBP", "VBZ", "WDT", "WP", "WP$", "WRB"}
 ;
 	
 	private static Map<String, String> tagMapping;
@@ -46,7 +46,7 @@ public abstract class RegexReorderRule extends ReorderRule {
 		Map<String, String> mapping = getTagMapping();
 		String tagStr = "";
 		for (TaggedWord word : sentence) {
-			String tag = word.tag();
+			String tag = mapping.get(word.tag());
 			if (tag == null) throw new IllegalStateException("Unknown tag detected: " + tag);
 			tagStr += tag;
 		}
@@ -60,9 +60,12 @@ public abstract class RegexReorderRule extends ReorderRule {
 		if (regexPattern == null) {
 			String regex = reorderRegex;
 			// Short hand notation
-			regex = regex.replaceAll("\\{VERBS\\}", "{VB}{VBD}{VBG}{VBN}{VBP}{VBZ}");
+			regex = regex.replaceAll("\\{VERB\\}", "{VB}{VBD}{VBG}{VBN}{VBP}{VBZ}");
+			regex = regex.replaceAll("\\{NOUN\\}", "{NN}{NNS}{NNP}{NNPS}");
+			regex = regex.replaceAll("\\{PUNC\\}", "{,}{:}{.}");
 			for (String tag : mapping.keySet()) {
-				regex = regex.replaceAll("\\{" + tag + "\\}", mapping.get(tag));
+				// Escape bad tags (warning: does not escape non-single-character tags with bad characters.
+				regex = regex.replaceAll("\\{" + ("[\\^$.|?*+(){}".contains(tag) ? "\\" : "") + tag + "\\}", mapping.get(tag));
 			}
 			regexPattern = Pattern.compile(regex);
 		}
@@ -71,26 +74,32 @@ public abstract class RegexReorderRule extends ReorderRule {
 	
 	/**
 	 * Optional overridable method to determine if a match is valid and worth reordering
-	 * @param match
+	 * @param matches
+	 * @param words
 	 * @return
 	 */
-	protected boolean IsMatchValid(Matcher match) {
+	protected boolean IsMatchValid(Matcher matches, List<TaggedWord> words) {
 		return true;
 	}
 	
-	private List<TaggedWord> reorderSentence(Matcher matches, List<TaggedWord> words) {
-		List<TaggedWord> newList = new ArrayList<TaggedWord>();
-		// Create beginning, middle, and end
-		newList.addAll(words.subList(0, matches.start()));
+	protected void appendNewOrder(Matcher matches, List<TaggedWord> words, List<TaggedWord> newList) {
 		for (int i = 0; i < reorderOrder.length; i++) {
 			newList.addAll(words.subList(matches.start(reorderOrder[i]), matches.end(reorderOrder[i])));
 		}
+	}
+	
+	protected List<TaggedWord> reorderSentence(Matcher matches, List<TaggedWord> words) {
+		List<TaggedWord> newList = new ArrayList<TaggedWord>();
+		// Create beginning, middle, and end
+		newList.addAll(words.subList(0, matches.start()));
+		appendNewOrder(matches, words, newList);
 		newList.addAll(words.subList(matches.end(), words.size()));
 		return newList;
 	}
 	
 	public List<TaggedWord> processSentence(List<TaggedWord> sentence) {
 		Pattern regexPattern = getProcessedRegex();
+		if (regexPattern.pattern().isEmpty()) return sentence;
 		// Continue searching until nothing is found
 		while (true) {
 			String tagStr = generateTagMappedSentence(sentence);
@@ -98,7 +107,7 @@ public abstract class RegexReorderRule extends ReorderRule {
 	
 			boolean matchFound = false;
 			while (tagMatcher.find()) {
-				if (IsMatchValid(tagMatcher)) {
+				if (IsMatchValid(tagMatcher, sentence)) {
 					sentence = reorderSentence(tagMatcher, sentence);
 					matchFound = true;
 					break;

@@ -81,6 +81,7 @@ public class MachineTranslator {
 			out.println("==========");
 			out.println("Spanish version: " + sentence);
 			out.println("English translation: " + translated);
+			out.println("Tagged version: " + tagger.tagString(translated));
 			out.println();
 		}
 	}
