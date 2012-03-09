@@ -25,6 +25,8 @@ public abstract class RegexReorderRule extends ReorderRule {
 	private String[] tags = new String[] {"UNK", ",", ":", ".", "CC", "CD", "DT", "EX", "FW", "IN", "JJ", "JJR", "JJS", "LS", "MD", "NN", "NNS", "NNP", "NNPS", "PDT", "POS", "PRP", "PRP$", "RB", "RBR", "RBS", "RP", "SYM", "TO", "UH", "VB", "VBD", "VBG", "VBN", "VBP", "VBZ", "WDT", "WP", "WP$", "WRB"}
 ;
 	
+	private final int MAX_REGEX_REODERINGS = 100; // The maximum number of times to apply a rule (to prevent infinite looping)
+	
 	private static Map<String, String> tagMapping;
 	
 	private Map<String, String> getTagMapping()
@@ -101,6 +103,7 @@ public abstract class RegexReorderRule extends ReorderRule {
 		Pattern regexPattern = getProcessedRegex();
 		if (regexPattern.pattern().isEmpty()) return sentence;
 		// Continue searching until nothing is found
+		int maxLoops = MAX_REGEX_REODERINGS;
 		while (true) {
 			String tagStr = generateTagMappedSentence(sentence);
 			Matcher tagMatcher = regexPattern.matcher(tagStr);
@@ -114,6 +117,8 @@ public abstract class RegexReorderRule extends ReorderRule {
 				}
 			}
 			if (!matchFound) break;
+			maxLoops--;
+			if (maxLoops == 0) throw new IllegalStateException("Infinite loop in reordering detected - make sure your transformations don't retrigger the match conditions!");
 		}
 		return sentence;
 	}
