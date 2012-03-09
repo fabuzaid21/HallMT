@@ -18,11 +18,11 @@ public class Dictionary {
 				if (line == null) {
 					break;
 				}
-				String[] words = line.split("\t", 2);
+				String[] words = line.split("\t");
 				if (words.length == 2) {
 					String key = words[0];
 					String value = words[1];
-					dict.put(key, value);
+					dict.put(key, value.toLowerCase());
 				}
 			}
 			reader.close();
@@ -31,7 +31,7 @@ public class Dictionary {
 		}
 	}
 	public String getWord(String spanishWord) {
-		return dict.get(spanishWord);
+		return dict.get(spanishWord.toLowerCase());
 	}
 
 }

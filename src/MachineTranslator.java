@@ -1,9 +1,13 @@
 import static java.lang.System.out;
+import edu.stanford.nlp.ling.CoreLabel;
+import edu.stanford.nlp.ling.TaggedWord;
+import edu.stanford.nlp.ling.Word;
 import edu.stanford.nlp.tagger.maxent.MaxentTagger;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -13,6 +17,7 @@ public class MachineTranslator {
 	private Dictionary dict;
 	private List<String> sentences;
 	private MaxentTagger tagger;
+	private ReorderEngine reorderer;
 
 	private final boolean DISABLE_TAGGER = true;
 
@@ -43,6 +48,7 @@ public class MachineTranslator {
 			e.printStackTrace();
 		}
 		sentences = GetSentencesFromFile(inputPath);
+		reorderer = new ReorderEngine();
 	}
 
 	private ArrayList<String> GetSentencesFromFile(String inputPath) {
@@ -75,27 +81,42 @@ public class MachineTranslator {
 			out.println("==========");
 			out.println("Spanish version: " + sentence);
 			out.println("English translation: " + translated);
-			if (tagger != null) {
-				out.println("Tagged English translation: "
-						+ tagger.tagString(translated));
-			}
 			out.println();
 		}
 	}
 
 	private String TranslateSentence(String foreignSentence) {
 		String englishSentence = "";
+		// Parse out words
 		Pattern wordPattern = Pattern.compile("([\\p{L}]+|[\\p{P}]+)");
 		Matcher wordMatcher = wordPattern.matcher(foreignSentence);
 		List<String> words = new ArrayList<String>();
 		while (wordMatcher.find()) {
 			words.add(wordMatcher.group(1));
 		}
+		// Translate individual words
+		List<TaggedWord> translatedWords = new ArrayList<TaggedWord>();
 		for (String word : words) {
 			String translation = dict.getWord(word);
 			if (translation == null) translation = word;
-			englishSentence += translation + " ";
+			for (String w : translation.split(" ")) {
+				translatedWords.add(new TaggedWord(translation, "NA"));
+			}
 		}
-		return englishSentence;
+		// Tag the words
+		List<TaggedWord> taggedWords;
+		if (tagger != null) {
+			taggedWords = tagger.tagSentence(translatedWords);
+		} else {
+			taggedWords = translatedWords;
+		}
+		// Apply reorder engine
+		taggedWords = reorderer.reorderSentence(taggedWords);
+		// Reform sentence
+		String translatedSentence = "";
+		for (TaggedWord word : taggedWords) {
+			translatedSentence += word.word() + " ";
+		}
+		return translatedSentence;
 	}
 }
