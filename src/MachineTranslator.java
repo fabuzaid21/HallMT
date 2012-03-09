@@ -114,9 +114,16 @@ public class MachineTranslator {
 		taggedWords = reorderer.reorderSentence(taggedWords);
 		// Reform sentence
 		String translatedSentence = "";
+		boolean firstWord = true;
 		for (TaggedWord word : taggedWords) {
-			translatedSentence += word.word() + " ";
+			String wordStr = word.word();
+			// Check if punctuation is in it or first word
+			if (!".,".contains(wordStr)) {
+				translatedSentence += " ";
+			}
+			translatedSentence += wordStr;
+			if (!firstWord) firstWord = true;
 		}
-		return translatedSentence;
+		return translatedSentence.trim();
 	}
 }

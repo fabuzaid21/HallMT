@@ -22,7 +22,7 @@ public class Dictionary {
 				if (words.length == 2) {
 					String key = words[0];
 					String value = words[1];
-					dict.put(key, value.toLowerCase());
+					dict.put(key.toLowerCase(), value);
 				}
 			}
 			reader.close();
