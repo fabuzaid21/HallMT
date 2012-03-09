@@ -3,6 +3,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import edu.stanford.nlp.ling.TaggedWord;
+import edu.stanford.nlp.process.Morphology;
 
 public class NotToDidNotRule extends RegexReorderRule {
 	public NotToDidNotRule() {
@@ -19,8 +20,8 @@ public class NotToDidNotRule extends RegexReorderRule {
 		newList.add(words.get(matches.start(1)));
 		newList.add(new TaggedWord("did", "VBD"));
 		newList.add(words.get(matches.start(2)));
-		// TODO: Need a better way to turn from past tense to base form
-		String oldVerb = words.get(matches.start(3)).word();
-		newList.add(new TaggedWord(oldVerb.replaceAll("ed$", ""), "VB"));
+		Morphology wordMorpher = new Morphology();
+		TaggedWord oldVerb = words.get(matches.start(3));
+		newList.add(new TaggedWord(wordMorpher.stem(oldVerb.word()), "VB"));
 	}
 }
