@@ -14,7 +14,7 @@ public class MachineTranslator {
 	private List<String> sentences;
 	private MaxentTagger tagger;
 
-	private final boolean DISABLE_TAGGER = false;
+	private final boolean DISABLE_TAGGER = true;
 
 	public static void main(String[] args) {
 		// write rules
@@ -75,32 +75,26 @@ public class MachineTranslator {
 			out.println("==========");
 			out.println("Spanish version: " + sentence);
 			out.println("English translation: " + translated);
-			out.println("Tagged English translation: "
-					+ tagger.tagString(translated));
+			if (tagger != null) {
+				out.println("Tagged English translation: "
+						+ tagger.tagString(translated));
+			}
 			out.println();
 		}
 	}
 
 	private String TranslateSentence(String foreignSentence) {
 		String englishSentence = "";
-		Pattern wordPattern = Pattern
-				.compile("([-,¿¡]?)([ÁáÉéÍíÑñÓóÚúÜü\\w]+)([-,.¿¡]?)");
-		for (String word : foreignSentence.split(" ")) {
-			Matcher wordMatcher = wordPattern.matcher(word);
-
-			if (wordMatcher.find()) {
-				int count = wordMatcher.groupCount();
-				for (int i = 1; i <= count; ++i) {
-					String entry = wordMatcher.group(i);
-					if (!entry.equals("")) {
-						englishSentence += dict.getWord(entry.toLowerCase());
-					}
-				}
-
-			}
-			englishSentence += " ";
-			// englishSentence += " " + dict.getWord(word.toLowerCase());
-
+		Pattern wordPattern = Pattern.compile("([\\p{L}]+|[\\p{P}]+)");
+		Matcher wordMatcher = wordPattern.matcher(foreignSentence);
+		List<String> words = new ArrayList<String>();
+		while (wordMatcher.find()) {
+			words.add(wordMatcher.group(1));
+		}
+		for (String word : words) {
+			String translation = dict.getWord(word);
+			if (translation == null) translation = word;
+			englishSentence += translation + " ";
 		}
 		return englishSentence;
 	}
