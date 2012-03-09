@@ -46,7 +46,9 @@ public abstract class RegexReorderRule extends ReorderRule {
 		Map<String, String> mapping = getTagMapping();
 		String tagStr = "";
 		for (TaggedWord word : sentence) {
-			tagStr += mapping.get(word.tag());
+			String tag = word.tag();
+			if (tag == null) throw new IllegalStateException("Unknown tag detected: " + tag);
+			tagStr += tag;
 		}
 		return tagStr;
 	}
@@ -99,6 +101,7 @@ public abstract class RegexReorderRule extends ReorderRule {
 				if (IsMatchValid(tagMatcher)) {
 					sentence = reorderSentence(tagMatcher, sentence);
 					matchFound = true;
+					break;
 				}
 			}
 			if (!matchFound) break;

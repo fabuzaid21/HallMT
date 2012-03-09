@@ -19,7 +19,7 @@ public class MachineTranslator {
 	private MaxentTagger tagger;
 	private ReorderEngine reorderer;
 
-	private final boolean DISABLE_TAGGER = true;
+	private final boolean DISABLE_TAGGER = false;
 
 	public static void main(String[] args) {
 		// write rules
