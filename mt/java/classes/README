@@ -1,0 +1,174 @@
+==========================================================================
+PROJECT WRITEUP
+Firas Abuzaid, Kingston Tam, Tina Roh
+==========================================================================
+
+F LANGUAGE: Spanish
+
+TEST DOCUMENT:
+
+Sentence 1
+==========
+Spanish version: Sin embargo, la viejecita -que se había presentado tan cordialmente- era una bruja que cuando encontraba niños lo celebraba comiéndoselos.
+
+English translation Before Rules: However, the old woman - that himself had submitted so cordially - was a witch that when was finding children it was celebrating eating them.
+
+English translation After Rules: However, the old woman - that had submitted himself so cordially - was a witch that when he was finding children was celebrating eating it them.
+
+Sentence 2
+==========
+Spanish version: A primera hora de la mañana, la bruja cogió bruscamente a Hansel con su dura mano.
+
+English translation Before Rules: To first hour of the morning, the witch lifted sharply to Hansel with its hard hand.
+
+English translation After Rules: On first hour of the morning, the witch lifted sharply to Hansel with its hard hand.
+
+Sentence 3
+==========
+Spanish version: Le llevó al establo y le encerró detrás de una reja.
+
+English translation Before Rules: Him took to the barn and him locked behind a grille.
+
+English translation After Rules: He took him to the barn and locked him behind a grille.
+
+Sentence 4
+==========
+Spanish version: Tras despertar a Gretel a gritos, le mandó que hiciese unas buenas comidas para su hermano a fin de engordarle.
+
+English translation Before Rules: After to awaken to Gretel to shouting, him commanded that made some good meals to its brother to end of to made him fat.
+
+English translation After Rules: After awakening to Gretel to shouting, he commanded him that made some good meals to its brother to end making him fat.
+
+Sentence 5
+==========
+Spanish version: Cuando estuviese bien gordo se lo comería.
+
+English translation Before Rules: When was well fat himself it would eat.
+
+English translation After Rules: When he was well fat he would eat it himself.
+
+Sentence 6
+==========
+Spanish version: Por más que la pobre Gretel lloraba tenía que hacer todo lo que la bruja le exigía.
+
+English translation Before Rules: No matter how the poor Gretel cried had that to do all it that the witch him demanded.
+
+English translation After Rules: No matter how the poor Gretel cried he had to do all that the witch demanded him.
+
+Sentence 7
+==========
+Spanish version: Cada mañana la bruja iba al establo para comprobar si Hansel engordaba.
+
+English translation Before Rules: Each morning the witch was going to the barn to to check if Hansel fattened.
+
+English translation After Rules: Each morning the witch was going to the barn to check if Hansel fattened.
+
+Sentence 8
+==========
+Spanish version: Él, ingenioso -sabiendo que la bruja veía poco-, en lugar de darle la mano, le mostraba un huesecillo de pollo.
+
+English translation Before Rules: He, ingenious - knowing that the witch saw little -, in place of to give him the hand, him showed a little bone of chicken.
+
+English translation After Rules: He, ingenious - knowing that the witch saw little -, in place of giving him the hand, showed him a little bone of chicken.
+
+Sentence 9
+==========
+Spanish version: Al constatar que el niño no aumentaba de peso, se enfadaba muchísimo.
+
+English translation Before Rules: To the to note that the child not increased of weight, himself was making angry a lot.
+
+English translation After Rules: Upon noting that the child did not increase weight, he was making himself angry a lot.
+
+Sentence 10
+==========
+Spanish version: Pasadas cuatro semanas, y viendo que no engordaba, decidió que de todos modos se lo comería al día siguiente.
+
+English translation Before Rules: Past four weeks, and watching that not fattened, decided that anyway himself it would eat to the day following.
+
+English translation After Rules: Past four weeks, and watching he did not fatten, decided that anyway he would eat it himself on the day following.
+
+==========================================================================
+
+RULES:
+1. 'Al' + Infinitive
+When we have 'al', which translates to 'to the', plus an infinitive, we change it to 'upon'. Spanish frequently translates directly "to -ing". For instance, "to noting that the" => "upon noting that the". 
+
+2. A Vs. An
+If we have a translation to 'an' when 'a' is supposed to be used, switch it, and vice versa. Spanish doesn't have a sense of vowel difference. For instance, "an witch" => "a witch" or "a apple" => "an apple".
+
+3. Double Negative Elimination
+If negative words such as 'nothing', 'never', 'no', and 'nobody' are negated once more with 'not', we switch them to the positive word such as 'anything', 'always', 'some', and 'somebody'.
+
+4. Double "To" Elimination
+If there are two "to"'s, we eliminate one. This happens in direct Spanish to English translations because verbs can be of the form "to VERB". For instance, the direct translation of "Cada mañana la bruja iba al establo para comprobar si Hansel engordaba." is "Each morning the witch was going to the barn to to check if Hansel fattened."
+
+5. "Have That" -> "Have To"
+Direct translation of phrases such as "tenía que hacer todo" becomes "had that to do", which is awkward in English. Therefore, we changed the phrase to "had to do", so that "Por más que la pobre Gretel lloraba tenía que hacer todo lo que la bruja le exigía." => "No matter how the poor Gretel cried had to do all that the witch demanded him."
+
+6. Infinitive to Gerund
+Any infinitives are converted to gerunds. In Spanish, there is no sense of a gerund, meaning that the equivalent is directly translated as "to VERB". To fix this issue, we take the word and change it to its -ing form. For instance, "en lugar de darle la mano" originally translated to "in place of to give him the hand", but was fixed to "in place of giving him the hand."
+
+7. "It That" -> "That"
+The "lo que" expression in Spanish becomes "it that", which is more correctly read as "to that" in English. This makes it problematic in cases where there is another noun being refers to, such as "Gretel lloraba tenía que hacer todo lo que la bruja le exigía", which becomes "Gretel cried had that to do all it that the witch him demanded." With this rule, "All it that the witch..." is fixed to "All that the witch...". 
+
+8. "Not" -> "Did Not"
+In Spanish, negation can be directly applied to verbs. For example, "no aumentaba de peso" is literally "not increased of weight", but we want "did not increase weight". We fix not increased to "did not increase" (the "of" is addressed later).
+
+9. Object Pronoun After
+If a pronoun is the object of the sentence, we put the pronoun after the verb and any supporting modals. And because of our rules, missing subjects would be filled in. For instance, the translation of "him commanded that made some good meals to its brother to end making him fat" becomes "he commanded him that made some good meals to its brother to end making him fat", which is a lot more fluent in English.
+
+Spanish allows for ambiguous subjects in many sentences. The following "No Subject" rules are in place to address that. 
+
+10. No Subject, General
+If there is no subject before a verb at the beginning of the sentence, before a Wh-pronoun, or subordinating conjunction, add a default subject "he". For instance, "When was well fat would eat it himself" becomes When he was well fat would eat it himself".
+
+11. No Subject, Comma/Hyphen Phrase
+The subject needs to be present if there is a comma or hyphen phrase, right before the first instance of that phrase. In Spanish, the subject can be ambiguous, meaning that the direct translation would not address this issue. However, this rule did not completely address the issue, since "Past four weeks, and watching that not fattened, decided that..." has "weeks" before the first comma, and "weeks" is a noun but not the subject.
+
+12. No Subject, No Noun Sentence
+If there is no subject between the verb and the previous verb, a subject "he" is prepended. This is to address any other missing subjects our previous two rules have not caught. For instance, "When he was well fat would eat it himself" to "When he was well fat he would eat it himself".
+
+13. Reflexive at End
+If we have a reflexive pronoun (himself/herself/themselves) following a verb, we move the sequence to the proper English equivalent. For instance, Spanish has "le (him) envio (I send) un regalo", which would be more properly "I send him a present", as in the verb should be before the reflexive when the reflexive is the receiver. In the text, it would improve instances such as "himself was making angry a lot" to "he was making himself angry a lot."
+
+14. Extra "Of"s
+Direct translation of Spanish tends to add additional "of"s to verbs. We don't want them in English, because of indicates possession in English. For instance, "Al constatar que el niño no aumentaba de peso" translating to "To the to note that the child not increased of weight" becomes "To the to note that the child not increased weight".
+
+15. To Time
+Spanish has "a" time, and "a" is usually translated to the English "to". So the translation would say there is "to" an hour, for instance with "a primera hora". When we have a time, such as "To XYZ hour/day/week/month", this rule changes it to "on XYZ hour/day/week/month". This helped translate "To first hour of the morning" to "On first hour of the morning".
+
+OTHER FEATURES:
+We implemented a three-word phrase stupid-backoff model, meaning that it first looks for phrases of three words in the dictionary, then two, then one word. This allows for correct translation of phrases such as "sin embargo" to "however".
+
+ERROR ANALYSIS:
+The main error is the lack of gender understanding. We would be able to implement it if we had gender knowledge, such as that "Witch" and "woman" are female and therefore should be referred to as "she", along with names like "Hansel" as a "he" and "Gretel" as a "she". To fix the fluency of our sentences, we would consider other models of translation so that longer sentences maintain a higher fluidity. If we extended our 3-phrase dictionary, we would be able to pick up phrases such as "bien gordo" to "well-fed", but since the dictionary was not the focus of this assignment, we chose not to. We also have improvements to make in our no subject detection, such as mentioned in rule 11, but we would require more knowledge about the context and what makes a noun a subject. Furthermore, there are times when the English equivalent of words can be different part of speeches. "Bien" can be the adjective "well" or the adverb "well/very". It is difficult to tell when well or very would fit in a sentence, such as "well fat" or "very fat". This could be addressed with stored frequencies of phrases occurring in English.
+
+==========================================================================
+
+GOOGLE TRANSLATE:
+However, the little old woman who had so cordially presented was a witch who was celebrating when he found children eating them.
+Early in the morning, the Witch suddenly grabbed Hansel with his hard hand.
+It took the barn and locked behind a fence.
+After waking up screaming Gretel, he commanded him to do some good meals for her brother to fatting.
+When it was either eat fat.
+As much as the poor cried Gretel had to do everything the witch demanded.
+Each morning the witch went to the barn to check for fattening Hansel.
+He, witty, knowing that the witch saw little, instead of shaking hands, showed him a small bone chicken.
+In finding that the child did not gain weight, get angry a lot.
+After four weeks, and seeing that he gained weight, anyway decided that it would eat the next day.
+
+COMPARISON TO GOOGLE TRANSLATE:
+Both our system Google Translate fail to address gender and often mix up subject pronouns, switching "it" or "he" for "her" and "she". Google is more fluent than our system, and longer sentences tend to sound better. Google Translate also tends to understand certain idioms better, such as "Early in the morning" instead of our more literal translation "On first hour of the morning". Our translator, due to its direct translation model, is more faithful than fluent. Thus, it has a better translation in shorter sentences with less context, especially in appending missing subjects, such as "Le llevó al establo y le encerró detrás de una reja" translated to "He took him to the barn and locked him behind a grille", whereas Google results in "It took the barn and locked behind a fence". Another example of this occurs in sentence 9; Google Translate does not include a subject in the last clause and simply translates it as "get angry a lot", whereas our translator translates it as "he was making himself angry a lot". 
+
+==========================================================================
+
+MAIN OBSERVATIONS ABOUT SPANISH:
+1. Many sentences are missing a subject.
+2. Words often translate to -ing forms followed by nouns, such as "lo celebraba comiéndoselos" translates to "celebrating eating it them", which makes for ambiguous objects in relation to the -ing verb.  
+3. Adjectives follow nouns, but in English nouns follow adjective.
+4. Not all prepositions match up to English equivalents. For example, "demanded him" or "demanded from him" is ambiguous. Mainly, the Spanish 'a' complicates prepositional translations, since "Tras despertar a Gretel a grito" can translate directly to "After awakening to Gretel to shouting", but should be "After awakening to Gretel shouting".
+
+==========================================================================
+
+RESPONSIBILITIES:
+We split responsibilities between brainstorming rules, writing code infrastructure, coding the rules, and writing the README.
