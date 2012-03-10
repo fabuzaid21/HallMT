@@ -87,7 +87,6 @@ public class MachineTranslator {
 	}
 
 	private String TranslateSentence(String foreignSentence) {
-		String englishSentence = "";
 		// Parse out words
 		Pattern wordPattern = Pattern.compile("([\\p{L}]+|[\\p{P}]+)");
 		Matcher wordMatcher = wordPattern.matcher(foreignSentence);
@@ -97,9 +96,21 @@ public class MachineTranslator {
 		}
 		// Translate individual words
 		List<TaggedWord> translatedWords = new ArrayList<TaggedWord>();
-		for (String word : words) {
-			String translation = dict.getWord(word);
-			if (translation == null) translation = word;
+		for (int i = 0; i < words.size(); i++) {
+			String translation = null;
+			for (int j = 3; j > 0; j--) {
+				String testPhrase = "";
+				int pos;
+				for (pos = i; pos < Math.min(words.size() - 1, i + j); pos++) {
+					testPhrase += words.get(pos) + " ";
+				}
+				translation = dict.getWord(testPhrase.trim());
+				if (translation != null) {
+					i = pos - 1;
+					break;
+				}
+			}
+			if (translation == null) translation = words.get(i);
 			for (String w : translation.split(" ")) {
 				translatedWords.add(new TaggedWord(w, "UNK"));
 			}
