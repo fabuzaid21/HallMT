@@ -10,7 +10,7 @@ import edu.stanford.nlp.ling.TaggedWord;
  */
 public class PrependSubjectWithoutNoun extends RegexReorderRule {
 	public PrependSubjectWithoutNoun() {
-		reorderRegex = "([{VB}{VBD}{VBN}{VBP}{VBZ}][^{NOUN}{PRP}{TO}]*)([{VB}{VBD}{VBP}{VBZ}{MD}])";
+		reorderRegex = "([{VB}{VBD}{VBN}{VBP}{VBZ}][^{NOUN}{PRP}{MD}{VERB}{TO}]*)([{VB}{VBD}{VBP}{VBZ}{MD}])";
 	}
 	
 	@Override
