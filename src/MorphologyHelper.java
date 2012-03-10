@@ -6,7 +6,7 @@ import edu.stanford.nlp.ling.TaggedWord;
 import edu.stanford.nlp.process.Morphology;
 
 public class MorphologyHelper {
-	public static TaggedWord PastTenseToBaseTense(TaggedWord verb) {
+	public static TaggedWord verbToBaseTense(TaggedWord verb) {
 		Morphology wordMorpher = new Morphology();
 		return new TaggedWord(wordMorpher.stem(verb.word()), "VB");
 	}

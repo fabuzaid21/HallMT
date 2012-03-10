@@ -19,11 +19,16 @@ public class ReorderEngine {
 		rules.add(new DoubleToEliminationRule());
 		rules.add(new ObjectPronounAfterRule());
 		rules.add(new AVsAnRule());
+		// Prepend subject rules
 		rules.add(new PrependSubjectRule());
 		rules.add(new PrependCommaSubjectRule());
+		rules.add(new PrependSubjectWithoutNoun());
 		rules.add(new NotToDidNotRule());
 		rules.add(new DoubleNegativeRule());
 		rules.add(new RemoveExtraneousOfRule());
+		rules.add(new HaveThatToHaveToRule());
+		rules.add(new ItThatToThatRule());
+		rules.add(new ReflexiveAtEndRule());
 	}
 
 	public List<TaggedWord> reorderSentence(List<TaggedWord> words) {
