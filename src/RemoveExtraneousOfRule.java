@@ -16,3 +16,4 @@ public class RemoveExtraneousOfRule extends RegexReorderRule {
 		return words.get(matches.start(2)).word().equals("of");
 	}
 }
+ 
