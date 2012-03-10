@@ -17,6 +17,7 @@ public class ReorderEngine {
 		rules.add(new ObjectPronounAfterRule());
 		rules.add(new AVsAnRule());
 		rules.add(new PrependSubjectRule());
+		rules.add(new PrependCommaSubjectRule());
 		rules.add(new NotToDidNotRule());
 	}
 
