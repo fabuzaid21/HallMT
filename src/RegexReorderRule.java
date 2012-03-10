@@ -2,9 +2,6 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import com.sun.org.apache.xerces.internal.impl.xpath.regex.Match;
-
-import edu.stanford.nlp.io.EncodingPrintWriter.out;
 import edu.stanford.nlp.ling.*;
 
 /**

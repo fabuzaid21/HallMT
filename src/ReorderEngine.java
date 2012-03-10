@@ -15,7 +15,6 @@ public class ReorderEngine {
 		// Add reorder rules here
 		// e.g. rules.add(new RandomRule());
 		// Processing of verbs rules
-		rules.add(new AlPlusInfinitiveRule());
 		rules.add(new InfinitiveToGerundRule());
 		rules.add(new DoubleToEliminationRule());
 		rules.add(new ObjectPronounAfterRule());
@@ -27,6 +26,9 @@ public class ReorderEngine {
 		// Phrase rules
 		rules.add(new HaveThatToHaveToRule());
 		rules.add(new ItThatToThatRule());
+		// Preposition handling
+		rules.add(new ToPlusTimePhraseRule());
+		rules.add(new AlPlusInfinitiveRule());
 		// Negative handling
 		rules.add(new NotToDidNotRule());
 		rules.add(new DoubleNegativeRule());
