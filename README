@@ -1,48 +1,119 @@
-=====================================
+==========================================================================
 PROJECT WRITEUP
 Firas Abuzaid, Kingston Tam, Tina Roh
-=====================================
+==========================================================================
 
 F LANGUAGE: Spanish
 
 TEST DOCUMENT:
-Sin embargo, la viejecita -que se había presentado tan cordialmente- era una bruja que cuando encontraba niños lo celebraba comiéndoselos.
-A primera hora de la mañana, la bruja cogió bruscamente a Hansel con su dura mano.
-Le llevó al establo y le encerró detrás de una reja.
-Tras despertar a Gretel a gritos, le mandó que hiciese unas buenas comidas para su hermano a fin de engordarle.
-Cuando estuviese bien gordo se lo comería.
-Por más que la pobre Gretel lloraba tenía que hacer todo lo que la bruja le exigía.
-Cada mañana la bruja iba al establo para comprobar si Hansel engordaba.
-Él, ingenioso -sabiendo que la bruja veía poco-, en lugar de darle la mano, le mostraba un huesecillo de pollo.
-Al constatar que el niño no aumentaba de peso, se enfadaba muchísimo.
-Pasadas cuatro semanas, y viendo que no engordaba, decidió que de todos modos se lo comería al día siguiente.
-Gretel no paraba de llorar y llorar, pero sus lágrimas no servían de nada.
 
-=====================================
+Sentence 1
+==========
+Spanish version: Sin embargo, la viejecita -que se había presentado tan cordialmente- era una bruja que cuando encontraba niños lo celebraba comiéndoselos.
 
-SYSTEM OUTPUT:
+English translation: However, the old woman - that had submitted himself so cordially - was a witch that when he was finding children was celebrating eating it them.
 
+Sentence 2
+==========
+Spanish version: A primera hora de la mañana, la bruja cogió bruscamente a Hansel con su dura mano.
+
+English translation: To first time of the morning, the witch lifted sharply to Hansel with its hard hand.
+
+Sentence 3
+==========
+Spanish version: Le llevó al establo y le encerró detrás de una reja.
+
+English translation: He took him to the barn and locked him behind a grid. 
+
+Sentence 4
+==========
+Spanish version: Tras despertar a Gretel a gritos, le mandó que hiciese unas buenas comidas para su hermano a fin de engordarle.
+
+English translation: After awakening to Gretel to shouting, he commanded him that made some good meals to its brother to end made him fat.
+
+Sentence 5
+==========
+Spanish version: Cuando estuviese bien gordo se lo comería.
+
+English translation: When he was well fat he would eat it himself.
+
+Sentence 6
+==========
+Spanish version: Por más que la pobre Gretel lloraba tenía que hacer todo lo que la bruja le exigía.
+
+English translation: By more that the poor Gretel cried he had to do all that the witch demanded him.
+
+Sentence 7
+==========
+Spanish version: Cada mañana la bruja iba al establo para comprobar si Hansel engordaba.
+
+English translation: Each morning the witch was going to the barn to check if Hansel fattened.
+
+Sentence 8
+==========
+Spanish version: Él, ingenioso -sabiendo que la bruja veía poco-, en lugar de darle la mano, le mostraba un huesecillo de pollo.
+
+English translation: He, ingenious - knowing that the witch saw little -, in place of give to him the hand, showed him a little bone of chicken.
+
+Sentence 9
+==========
+Spanish version: Al constatar que el niño no aumentaba de peso, se enfadaba muchísimo.
+
+English translation: Upon noting that the child did not increase weight, he was making himself angry a lot.
+
+Sentence 10
+==========
+Spanish version: Pasadas cuatro semanas, y viendo que no engordaba, decidió que de todos modos se lo comería al día siguiente.
+
+English translation: Past four weeks, and watching that did not fatten, he decided that of all modes would eat it himself to the day following.
+
+==========================================================================
 
 RULES:
-1. 
+1. 'Al' + Infinitive
+When we have 'al', which translates to 'to the', plus an infinitive, we change it to 'upon'. For instance, "to noting that the" => "upon noting that the". 
+
+2. A Vs. An
+If we have a translation to 'an' when 'a' is supposed to be used, switch it, and vice versa. Spanish doesn't have For instance, "an witch" => "a witch".
+
+3. Double Negative
+If negative words such as 'nothing', 'never', 'no', and 'nobody' are negated once more with 'not', we switch them to the positive word such as 'anything', 'always', 'some', and 'somebody'. 
+
+For each rule you create, a description of what it was supposed to do, what differences between Language F and English it was supposed to fix. Make sure you give a good example of the use of the rules in your running of your code.
+
+OTHER FEATURES:
+We implemented a three-word phrase stupid-backoff model, meaning that it first looks for phrases of three words in the dictionary, then two, then one word. This allows for correct translation of phrases such as "sin embargo" to "however".
 
 ERROR ANALYSIS:
 What kinds of errors are still left, and what kind of knowledge would you have needed to fix them?
 Error analysis, including ideas for how additional work might fix your remaining errors.
 
-=====================================
+==========================================================================
 
 GOOGLE TRANSLATE:
-Next, run your 10 sentences through Google Translate and discuss any errors that Google makes. Where does Google do better? Are there places where your implementation does better? Why?
+However, the little old woman who had so cordially presented was a witch who was celebrating when he found children eating them.
+Early in the morning, the Witch suddenly grabbed Hansel with his hard hand.
+It took the barn and locked behind a fence.
+After waking up screaming Gretel, he commanded him to do some good meals for her brother to fatting.
+When it was either eat fat.
+As much as the poor cried Gretel had to do everything the witch demanded.
+Each morning the witch went to the barn to check for fattening Hansel.
+He, witty, knowing that the witch saw little, instead of shaking hands, showed him a small bone chicken.
+In finding that the child did not gain weight, get angry a lot.
+After four weeks, and seeing that he gained weight, anyway decided that it would eat the next day.
 
-Comparative analysis for Google Translate, including where your system and Google agree, what your system does better than Google Translate, and what Google Translate does better than your system.
+COMPARISON TO GOOGLE TRANSLATE:
+Both our system Google Translate fail to address gender and often mix up subject pronouns, switching "it" or "he" for "her" and "she". Google is  more fluent than our system, and longer sentences tend to sound better. Our translator, due to its direct translation model, is more faithful than fluent. Thus, it has a better translation in shorter sentences with less context, such as "Le llevó al establo y le encerró detrás de una reja" translated to "He took him to the barn and locked him behind a grid", whereas Google results in "It took the barn and locked behind a fence".
 
-=====================================
+==========================================================================
 
-The F language you're working with and any general observations about it, including particular challenges in translating your choice of F language to English (relative to other possible choices for F).
+MAIN OBSERVATIONS ABOUT SPANISH:
+1. Many sentences are missing a subject.
+2. Words often translate to -ing forms followed by nouns, such as "lo celebraba comiéndoselos" translates to "celebrating eating it them", which makes for ambiguous objects in relation to the -ing verb.  
+3. Adjectives follow nouns, but in English nouns follow adjective.
+4. Not all prepositions match up to English equivalents. For example, "demanded him" or "demanded from him" is ambiguous. Mainly, the Spanish 'a' complicates prepositional translations, since "Tras despertar a Gretel a grito" can translate directly to "After awakening to Gretel to shouting", but should be "After awakening to Gretel shouting".
 
-The output of your system.
-For each rule you create, a description of what it was supposed to do, what differences between Language F and English it was supposed to fix. Make sure you give a good example of the use of the rules in your running of your code.
+==========================================================================
 
-
-A brief statement on the responsibilities of different members of the team. (Team members will normally get the same grade, but we reserve the right to differentiate in egregious cases.)
+RESPONSIBILITIES:
+We split responsibilities between brainstorming rules, writing code infrastructure, coding the rules, writing the Readme.
