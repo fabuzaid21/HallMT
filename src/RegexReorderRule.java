@@ -61,7 +61,7 @@ public abstract class RegexReorderRule extends ReorderRule {
 		Map<String, String> mapping = getTagMapping();
 		if (regexPattern == null) {
 			String regex = reorderRegex;
-			// Short hand notation
+			// Short hand notation - NOTE: You must add [] around a shorthand as it will simply expand out the sequence
 			regex = regex.replaceAll("\\{VERB\\}", "{VB}{VBD}{VBG}{VBN}{VBP}{VBZ}");
 			regex = regex.replaceAll("\\{NOUN\\}", "{NN}{NNS}{NNP}{NNPS}");
 			regex = regex.replaceAll("\\{PUNC\\}", "{,}{:}{.}");
