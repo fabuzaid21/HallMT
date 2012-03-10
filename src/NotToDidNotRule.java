@@ -20,7 +20,7 @@ public class NotToDidNotRule extends RegexReorderRule {
 		newList.add(words.get(matches.start(1)));
 		newList.add(new TaggedWord("did", "VBD"));
 		newList.add(words.get(matches.start(2)));
-		TaggedWord newVerb = MorphologyHelper.PastTenseToBaseTense(words.get(matches.start(3)));
+		TaggedWord newVerb = MorphologyHelper.verbToBaseTense(words.get(matches.start(3)));
 		newList.add(newVerb);
 	}
 }

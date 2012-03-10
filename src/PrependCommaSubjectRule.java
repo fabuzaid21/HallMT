@@ -11,16 +11,12 @@ import edu.stanford.nlp.ling.TaggedWord;
  */
 public class PrependCommaSubjectRule extends RegexReorderRule {
 	public PrependCommaSubjectRule() {
-		reorderRegex = "(^|[^{WRB}]{,})([^{PUNC}]+{,})([{VERB}])";
+		reorderRegex = "(^|[^{NOUN}][{,}{-}])([^{PUNC}]+[{,}{-}])([{VERB}])";
 	}
 	
 	@Override
 	protected void appendNewOrder(Matcher matches, List<TaggedWord> words, List<TaggedWord> newList) {
-		int start = matches.start(1);
-		int end = matches.end(2);
-		for (int i = start; i < end; ++i) {
-			newList.add(words.get(i));
-		}
+		newList.addAll(words.subList(matches.start(1), matches.end(2)));
 		// TODO: Use better subject than just "he"
 		newList.add(new TaggedWord("he", "PRP"));
 		newList.add(words.get(matches.start(3)));
