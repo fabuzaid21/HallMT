@@ -158,7 +158,7 @@ In finding that the child did not gain weight, get angry a lot.
 After four weeks, and seeing that he gained weight, anyway decided that it would eat the next day.
 
 COMPARISON TO GOOGLE TRANSLATE:
-Both our system Google Translate fail to address gender and often mix up subject pronouns, switching "it" or "he" for "her" and "she". Google is  more fluent than our system, and longer sentences tend to sound better. Our translator, due to its direct translation model, is more faithful than fluent. Thus, it has a better translation in shorter sentences with less context, especially in appending missing subjects, such as "Le llevó al establo y le encerró detrás de una reja" translated to "He took him to the barn and locked him behind a grid", whereas Google results in "It took the barn and locked behind a fence". 
+Both our system Google Translate fail to address gender and often mix up subject pronouns, switching "it" or "he" for "her" and "she". Google is more fluent than our system, and longer sentences tend to sound better. Google Translate also tends to understand certain idioms better, such as "Early in the morning" instead of our more literal translation "On first hour of the morning". Our translator, due to its direct translation model, is more faithful than fluent. Thus, it has a better translation in shorter sentences with less context, especially in appending missing subjects, such as "Le llevó al establo y le encerró detrás de una reja" translated to "He took him to the barn and locked him behind a grille", whereas Google results in "It took the barn and locked behind a fence". Another example of this occurs in sentence 9; Google Translate does not include a subject in the last clause and simply translates it as "get angry a lot", whereas our translator translates it as "he was making himself angry a lot". 
 
 ==========================================================================
 
@@ -171,4 +171,4 @@ MAIN OBSERVATIONS ABOUT SPANISH:
 ==========================================================================
 
 RESPONSIBILITIES:
-We split responsibilities between brainstorming rules, writing code infrastructure, coding the rules, writing the Readme.
+We split responsibilities between brainstorming rules, writing code infrastructure, coding the rules, and writing the README.
