@@ -22,12 +22,6 @@ public class MachineTranslator {
 	private final boolean DISABLE_TAGGER = false;
 
 	public static void main(String[] args) {
-		// write rules
-		// open the 10 Spanish sentences, and map each word into English
-		// Run the POS tagger on the English
-		// (Almost there) take rules and apply them to the English words to
-		// reorder them into sentences
-		// print out results!
 		String inputPath = args.length > 0 ? args[0] : "data/test.txt";
 		String dictionaryPath = args.length > 1 ? args[1] : "data/dict.dat";
 

@@ -4,10 +4,6 @@ import edu.stanford.nlp.ling.TaggedWord;
 
 /**
  * Checks if "a" is followed by a noun starting with a vowel and if so, change it to an "an"
- * 
- * NOTE: Not actually utilized in our test sentences
- * 
- * @author kingston
  *
  */
 public class AVsAnRule extends ReorderRule {

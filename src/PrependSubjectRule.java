@@ -6,8 +6,6 @@ import edu.stanford.nlp.ling.TaggedWord;
 
 /**
  * Prepends a subject to the verb if none provided
- * 
- * @author kingston
  *
  */
 public class PrependSubjectRule extends RegexReorderRule {

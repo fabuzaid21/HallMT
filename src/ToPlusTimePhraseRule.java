@@ -6,7 +6,6 @@ import edu.stanford.nlp.ling.*;
 
 /**
  * Matches "To XYZ hour/day/week/month" and changes it to "on XYZ hour/day/week/month"
- * @author kingston
  *
  */
 public class ToPlusTimePhraseRule extends RegexReorderRule {

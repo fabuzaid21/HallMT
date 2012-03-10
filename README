@@ -71,13 +71,58 @@ English translation: Past four weeks, and watching that did not fatten, he decid
 
 RULES:
 1. 'Al' + Infinitive
-When we have 'al', which translates to 'to the', plus an infinitive, we change it to 'upon'. For instance, "to noting that the" => "upon noting that the". 
+When we have 'al', which translates to 'to the', plus an infinitive, we change it to 'upon'. Spanish frequently translates directly "to -ing". For instance, "to noting that the" => "upon noting that the". 
 
 2. A Vs. An
-If we have a translation to 'an' when 'a' is supposed to be used, switch it, and vice versa. Spanish doesn't have For instance, "an witch" => "a witch".
+If we have a translation to 'an' when 'a' is supposed to be used, switch it, and vice versa. Spanish doesn't have a sense of vowel difference. For instance, "an witch" => "a witch" or "a apple" => "an apple".
 
-3. Double Negative
-If negative words such as 'nothing', 'never', 'no', and 'nobody' are negated once more with 'not', we switch them to the positive word such as 'anything', 'always', 'some', and 'somebody'. 
+3. Double Negative Elimination
+If negative words such as 'nothing', 'never', 'no', and 'nobody' are negated once more with 'not', we switch them to the positive word such as 'anything', 'always', 'some', and 'somebody'.
+
+4. Double "To" Elimination
+If there are two "to"'s, we eliminate one. This happens in direct Spanish to English translations because verbs can be of the form "to VERB". For instance, the direct translation of "Cada mañana la bruja iba al establo para comprobar si Hansel engordaba." is "Each morning the witch was going to the barn to to check if Hansel fattened."
+
+5. "Have That" -> "Have To"
+Direct translation of phrases such as "tenía que hacer todo" becomes "had that to do", which is awkward in English. Therefore, we changed the phrase to "had to do", so that "Por más que la pobre Gretel lloraba tenía que hacer todo lo que la bruja le exigía." => "No matter how the poor Gretel cried had to do all that the witch demanded him."
+
+6. Infinitive to Gerund
+Any infinitives are converted to gerunds. In Spanish, there is no sense of a gerund, meaning that the equivalent is directly translated as "to VERB". To fix this issue, we take the word and change it to its -ing form. For instance, "en lugar de darle la mano" originally translated to "in place of to give him the hand", but was fixed to "in place of giving him the hand."
+
+7. "It That" -> "That"
+The "lo que" expression in Spanish becomes "it that", which is more correctly read as "to that" in English. This makes it problematic in cases where there is another noun being refers to, such as "Gretel lloraba tenía que hacer todo lo que la bruja le exigía", which becomes "Gretel cried had that to do all it that the witch him demanded." With this rule, "All it that the witch..." is fixed to "All that the witch...". 
+
+8. "Not" -> "Did Not"
+In Spanish, negation can be directly applied to verbs. For example, "no aumentaba de peso" is literally "not increased of weight", but we want "did not increase weight". We fix not increased to "did not increase" (the "of" is addressed later).
+
+9. Object Pronoun After
+***
+
+Spanish allows for ambiguous subjects in many sentences. The following "No Subject" rules are in place to address that. 
+
+10. No Subject, General
+***
+
+11. No Subject, Comma/Hyphen Phrase
+The subject needs to be present if there is a comma or hyphen phrase, right before the first instance of that phrase. In Spanish, the subject can be ambiguous, meaning that the direct translation would not address this issue. However, this rule did not completely address the issue, since "Past four weeks, and watching that not fattened, decided that..." has "weeks" before the first comma, and "weeks" is a noun but not the subject.
+
+12. No Subject, No Noun Sentence
+If there is no subject between the verb and the previous verb, a subject "he" is prepended 
+***
+
+13. Reflexive at End
+Rule 2: If you have himself/herself/themselves/etc. followed by verbs, push it to the end of the verb sequence.
+(Spanish has "**le** (him) envio (I send) un regalo" -> "I send **him** a present"
+Indirect, direct, verb -> Verb, direct (pronoun), PREP, indirect (pronoun).
+		       -> Verb, direct, indirect.
+
+14. Extra "Of"s
+***
+
+15. To Time
+***
+
+
+
 
 For each rule you create, a description of what it was supposed to do, what differences between Language F and English it was supposed to fix. Make sure you give a good example of the use of the rules in your running of your code.
 
@@ -85,8 +130,7 @@ OTHER FEATURES:
 We implemented a three-word phrase stupid-backoff model, meaning that it first looks for phrases of three words in the dictionary, then two, then one word. This allows for correct translation of phrases such as "sin embargo" to "however".
 
 ERROR ANALYSIS:
-What kinds of errors are still left, and what kind of knowledge would you have needed to fix them?
-Error analysis, including ideas for how additional work might fix your remaining errors.
+The main error is the lack of gender understanding. We would be able to implement it if we had gender knowledge, such as that "Witch" and "woman" are female and therefore should be referred to as "she", along with names like "Hansel" as a "he" and "Gretel" as a "she". To fix the fluency of our sentences, we would consider other models of translation so that longer sentences maintain a higher fluidity. If we extended our 3-phrase dictionary, we would be able to pick up phrases such as "bien gordo" to "well-fed", but since the dictionary was not the focus of this assignment, we chose not to. We also have improvements to make in our no subject detection, such as mentioned in rule 11, but we would require more knowledge about the context and what makes a noun a subject .
 
 ==========================================================================
 
@@ -103,7 +147,7 @@ In finding that the child did not gain weight, get angry a lot.
 After four weeks, and seeing that he gained weight, anyway decided that it would eat the next day.
 
 COMPARISON TO GOOGLE TRANSLATE:
-Both our system Google Translate fail to address gender and often mix up subject pronouns, switching "it" or "he" for "her" and "she". Google is  more fluent than our system, and longer sentences tend to sound better. Our translator, due to its direct translation model, is more faithful than fluent. Thus, it has a better translation in shorter sentences with less context, such as "Le llevó al establo y le encerró detrás de una reja" translated to "He took him to the barn and locked him behind a grid", whereas Google results in "It took the barn and locked behind a fence".
+Both our system Google Translate fail to address gender and often mix up subject pronouns, switching "it" or "he" for "her" and "she". Google is  more fluent than our system, and longer sentences tend to sound better. Our translator, due to its direct translation model, is more faithful than fluent. Thus, it has a better translation in shorter sentences with less context, especially in appending missing subjects, such as "Le llevó al establo y le encerró detrás de una reja" translated to "He took him to the barn and locked him behind a grid", whereas Google results in "It took the barn and locked behind a fence". 
 
 ==========================================================================
 
