@@ -14,6 +14,14 @@ public class PrependSubjectWithoutNoun extends RegexReorderRule {
 	}
 	
 	@Override
+	protected boolean IsMatchValid(Matcher matches, List<TaggedWord> words) {
+		for (TaggedWord word : words.subList(matches.start(1), matches.end(1))) {
+			if (word.word().equals("not")) return false;
+		}
+		return true;
+	}
+	
+	@Override
 	protected void appendNewOrder(Matcher matches, List<TaggedWord> words, List<TaggedWord> newList) {
 		newList.addAll(words.subList(matches.start(1), matches.end(1)));
 		// TODO: Use better subject than just "he"
