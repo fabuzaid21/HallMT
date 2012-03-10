@@ -12,7 +12,7 @@ import edu.stanford.nlp.ling.TaggedWord;
  */
 public class PrependSubjectRule extends RegexReorderRule {
 	public PrependSubjectRule() {
-		reorderRegex = "(^|[{WRB}{.}])([{VB}{VBD}{VBP}{VBZ}])";
+		reorderRegex = "(^|[{WRB}{IN}{.}])([{VB}{VBD}{VBP}{VBZ}])";
 	}
 	
 	@Override
