@@ -5,22 +5,20 @@ import java.util.regex.Pattern;
 import edu.stanford.nlp.ling.TaggedWord;
 import edu.stanford.nlp.process.Morphology;
 
-public class NotToDidNotRule extends RegexReorderRule {
-	public NotToDidNotRule() {
-		reorderRegex = "([^{VBD}])({RB})([{VERB}])";
+public class InfinitiveToGerundRule extends RegexReorderRule {
+	public InfinitiveToGerundRule() {
+		this.reorderRegex = "([{IN}])({TO})([{VERB}])";
 	}
 	
 	@Override
 	protected boolean IsMatchValid(Matcher matches, List<TaggedWord> words) {
-		return words.get(matches.start(2)).word().equals("not");
+		return !Pattern.matches("(that)", words.get(matches.start(1)).word());
 	}
 	
 	@Override
 	protected void appendNewOrder(Matcher matches, List<TaggedWord> words, List<TaggedWord> newList) {
 		newList.add(words.get(matches.start(1)));
-		newList.add(new TaggedWord("did", "VBD"));
-		newList.add(words.get(matches.start(2)));
-		TaggedWord newVerb = MorphologyHelper.PastTenseToBaseTense(words.get(matches.start(3)));
+		TaggedWord newVerb = MorphologyHelper.verbToGerund(words.get(matches.start(3)));
 		newList.add(newVerb);
 	}
 }

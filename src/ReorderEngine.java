@@ -14,6 +14,9 @@ public class ReorderEngine {
 	public ReorderEngine() {
 		// Add reorder rules here
 		// e.g. rules.add(new RandomRule());
+		rules.add(new AlPlusInfinitiveRule());
+		rules.add(new InfinitiveToGerundRule());
+		rules.add(new DoubleToEliminationRule());
 		rules.add(new ObjectPronounAfterRule());
 		rules.add(new AVsAnRule());
 		rules.add(new PrependSubjectRule());
